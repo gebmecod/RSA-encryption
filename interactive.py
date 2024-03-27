@@ -1,4 +1,5 @@
 from generate_key import Key
+import rsa_oeap
 
 class Interactive():
 
@@ -38,8 +39,24 @@ class Interactive():
     def encrypt_then_sign(self):
         try:
             file = open(input("Enter message's filename/path: "), 'r')
-            message = file.read()
+            message = file.read().encode()
             print(message)
+            encryption_key = input("Specify an encryption public key: ")
+            signing_key = input("Specify a signing private key: ")
+            ciphertext = rsa_oeap.encrypt_message(message, encryption_key)
+            signature = rsa_oeap.sign_ciphertext(ciphertext, signing_key)
+
+            print(ciphertext,'\n',signature)
+
+            with open('ciphertext', 'wb') as f:
+                f.write(ciphertext)
+                f.close()
+
+            with open('signature.pem', 'wb') as f:
+                f.write(signature)
+                f.close()
+
+
         except(FileNotFoundError):
             print(f"File doesn't exist!")
 
