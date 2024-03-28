@@ -10,6 +10,7 @@ def main():
             interactive.generate_key()
             interactive.create_message()
             interactive.encrypt_then_sign()
+            interactive.verify_then_decrypt()
             break
         elif option == '2':
             pass

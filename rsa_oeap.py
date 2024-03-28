@@ -37,9 +37,9 @@ def decrypt_message(c, k):
     cipher = PKCS1_OAEP.new(key)
     message = cipher.decrypt(c)
 
-    print(message.decode())
+    return (message.decode())
 
-def verify_message(s, c, k):
+def verify_message(s, c, k, d):
 
     signature = s
     key = RSA.import_key(open(k).read())
@@ -49,14 +49,14 @@ def verify_message(s, c, k):
     try:
         pkcs1_15.new(key).verify(hash, signature)
         print("Signature is valid.")
-        decrypt_message(c, 'encryption')
+        return decrypt_message(c, d)
     except(ValueError, TypeError):
         print("Message has been tampered")
 
-signature = open('signature.pem', 'rb').read()
-ciphertext = open('ciphertext', 'rb').read()
-signing_public_key = 'signing.pub'
+# signature = open('signature.pem', 'rb').read()
+# ciphertext = open('ciphertext', 'rb').read()
+# signing_public_key = 'signing.pub'
 
-# ciphertext = encrypt_message(m, encryption_public_key)
-# signature = sign_ciphertext(ciphertext, signing_private_key)
-verify_message(signature, ciphertext, signing_public_key)
+# # ciphertext = encrypt_message(m, encryption_public_key)
+# # signature = sign_ciphertext(ciphertext, signing_private_key)
+# verify_message(signature, ciphertext, signing_public_key)

@@ -40,27 +40,37 @@ class Interactive():
         try:
             file = open(input("Enter message's filename/path: "), 'r')
             message = file.read().encode()
-            print(message)
+            # print(message)
             encryption_key = input("Specify an encryption public key: ")
             signing_key = input("Specify a signing private key: ")
             ciphertext = rsa_oeap.encrypt_message(message, encryption_key)
             signature = rsa_oeap.sign_ciphertext(ciphertext, signing_key)
 
-            print(ciphertext,'\n',signature)
+            # print(ciphertext,'\n',signature)
 
             with open('ciphertext', 'wb') as f:
                 f.write(ciphertext)
-                f.close()
 
             with open('signature.pem', 'wb') as f:
                 f.write(signature)
-                f.close()
 
 
         except(FileNotFoundError):
             print(f"File doesn't exist!")
+    
+    def verify_then_decrypt(self):
+        try:
+            ciphertext = open(input("Enter ciphertext's filename: "), 'rb').read()
+            signature = open(input("Enter signature's filename: "), 'rb').read()
+            signing_public_key = input("Specify signing public key filename: ")
+            decryption_private_key = input("Specify decryption key: ")
+
+            decrypted_message = rsa_oeap.verify_message(signature, ciphertext, signing_public_key, decryption_private_key)
+            print(decrypted_message)
+            
 
 
-
+        except(FileNotFoundError):
+            print("File doesn't exist!")
 
    
