@@ -35,7 +35,6 @@ def verify_message(s, c, k, d):
     signature = s
     key = RSA.import_key(open(k).read())
     hash = SHA256.new(c)
-    # print(c)
 
     try:
         pkcs1_15.new(key).verify(hash, signature)

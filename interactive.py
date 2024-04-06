@@ -47,15 +47,15 @@ class Interactive():
                 return
 
             filename = input("Enter message's filename: ")
-            with open(f'{filename}.txt', 'w') as f:
+            with open(f'{filename}', 'w') as f:
                 f.write(message)
-                print(f"Successfully created {filename}.txt file!")
+                print(f"Successfully created {filename} file!")
 
     def encrypt_then_sign(self):
         try:
             self.clear_screen()
             print("Encrypting and Signing the Message...\n")
-            file = open(f"{input("Enter message's filename: ")}.txt", 'r')
+            file = open(input("Enter message's filename: "), 'r')
             message = file.read().encode()
             encryption_key = input("Specify the encryption public key: ")
             signing_key = input("Specify the signing private key: ")
@@ -75,7 +75,7 @@ class Interactive():
 
     def tamper_encrypted_message(self):
         random_content = input("Enter random characters: ")
-        ciphertext = open('ciphertext', 'wb')
+        ciphertext = open('ciphertext', 'ab')
         ciphertext.write(random_content.encode())
     
     def verify_then_decrypt(self):
@@ -85,10 +85,10 @@ class Interactive():
             ciphertext = open('ciphertext', 'rb').read()
             signature = open('signature.pem', 'rb').read()
             signing_public_key = input("Specify signing public key: ")
-            decryption_private_key = input("Specify decryption key: ")
+            decryption_private_key = input("Specify encryption private key: ")
             self.clear_screen()
             decrypted_message = rsa_oeap.verify_message(signature, ciphertext, signing_public_key, decryption_private_key)
-            print(f"Your message is {decrypted_message}")
+            print(f"Your message is:\n{decrypted_message}")
             
 
 
