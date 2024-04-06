@@ -28,5 +28,27 @@ cd RSA-encryption
 ```
 python main.py
 ```
+4. Generating Key Pairs  
+            - Input `y` if you don't have an existing key pair else `n`.  
+            - Input encryption-decryption key pair name.  
+            - Input signing-verification key pair name.
+            - Created key pairs!
+> Public keys are saved with .pub extension e.g. encryption.pub, while private keys are saved without file extension e.g. encryption
+5. Creating the message  
+            - Input `y` if you don't have an existing message file else `n`.  
+            - Enter your message  
+            - Enter message filename (excluding the file extension e.g. test which will be automatically saved as test.txt)    
+            - Created message file!  
+> Note: Any message created outside of this program don't have a check for 140 char limit.
 
+6. Encrypting and Signing the message  
+            - Specify the message filename (without .txt)  
+            - Specify the encyrption public key (e.g. encryption.pub)  
+            - Specify the signing private key (e.g. signing)  
+            - Successfully encrypted the message  
+            - Successfully signed the encrypted message  
+            - Saved the encrypted message to ciphertext file, and the digital signature to signature.pem file
 
+7. Tampering the Message  
+            - Input `y` if you don't have an existing message file else `n`.
+            - If you 
