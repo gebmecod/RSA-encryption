@@ -79,7 +79,7 @@ class Interactive():
             self.clear_screen()
             print("Verifying and Decrypting the Message")
             ciphertext = open('ciphertext', 'rb').read()
-            signature = open('signature', 'rb').read()
+            signature = open('signature.pem', 'rb').read()
             signing_public_key = input("Specify signing public key: ")
             decryption_private_key = input("Specify decryption key: ")
             self.clear_screen()
