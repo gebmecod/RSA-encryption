@@ -2,20 +2,16 @@ from interactive import Interactive
 
 def main():
     
-    while True:
-        option = input("Choose an option\n\n(1) Interactive\n(2) Automatic\n: ")
 
-        if option == '1':
-            interactive = Interactive()
-            interactive.generate_key()
-            interactive.create_message()
-            interactive.encrypt_then_sign()
-            interactive.verify_then_decrypt()
-            break
-        elif option == '2':
-            pass
-        else:
-            print("Invalid option. Please try again!\n")
+    interactive = Interactive()
+    interactive.generate_key()
+    interactive.create_message()
+    interactive.encrypt_then_sign()
+    tamper = input('Do you want to tamper the encrypted message?[y/n]')
+    if tamper == 'y':
+        interactive.tamper_encrypted_message()
+    interactive.verify_then_decrypt()
+
         
         
         
