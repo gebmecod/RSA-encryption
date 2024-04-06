@@ -37,12 +37,12 @@ python main.py
 5. Creating the message  
     - Input `y` if you don't have an existing message file else `n`.  
     - Enter your message  
-    - Enter message filename (excluding the file extension e.g. test which will be automatically saved as test.txt)    
+    - Enter message filename (e.g. test.txt)  
     - Created message file!  
 > Note: Any message created outside of this program don't have a check for 140 char limit.
 
 6. Encrypting and Signing the message  
-    - Specify the message filename (without .txt)  
+    - Specify the message filename (e.g. test.txt)  
     - Specify the encyrption public key (e.g. encryption.pub)  
     - Specify the signing private key (e.g. signing)  
     - Successfully encrypted the message  
