@@ -62,5 +62,9 @@ To simulate tampering of the encrypted message, an option will be prompted after
 
 Program Functions:
 --
-For encryption and signing of the message see: [encrypt_then_sign.md](https://github.com/gebmecod/RSA-encryption/blob/main/docs/encrypt_then_sign.md)
-For verifying signature and decrypting ciphertext see: [verify_then_decrypt.md](https://github.com/gebmecod/RSA-encryption/blob/main/docs/verify_then_decrypt.md)
+For encryption and signing of the message see: [encrypt_then_sign.md](https://github.com/gebmecod/RSA-encryption/blob/main/docs/encrypt_then_sign.md)  
+For verifying signature and decrypting ciphertext see: [verify_then_decrypt.md](https://github.com/gebmecod/RSA-encryption/blob/main/docs/verify_then_decrypt.md)  
+
+The Importance of Digital Signatures in Asymmetric Key Encryption:
+--
+Read [here](https://hackmd.io/@gebmecod/rsa-encryption)
