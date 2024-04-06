@@ -59,3 +59,8 @@ To simulate tampering of the encrypted message, an option will be prompted after
     - Specify the encryption private key (e.g. encryption)
     - Returns response for verification
     - Decrypts and prints the message
+
+Program Functions:
+--
+For encryption and signing of the message see: [encrypt_then_sign.md](https://github.com/gebmecod/RSA-encryption/blob/main/docs/encrypt_then_sign.md)
+For verifying signature and decrypting ciphertext see: [verify_then_decrypt.md](https://github.com/gebmecod/RSA-encryption/blob/main/docs/verify_then_decrypt.md)
