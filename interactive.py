@@ -40,18 +40,22 @@ class Interactive():
 
         if is_message == 'y':
             self.clear_screen()
-            message = input("Enter your message: ")
+            message = input("Enter your message (max 140 characters): ")
+
+            if len(message) > 140:
+                print("Error: Message exceeds 140 characters limit.")
+                return
+
             filename = input("Enter message's filename: ")
             with open(f'{filename}.txt', 'w') as f:
                 f.write(message)
-                f.close()
-            print(f"Successully created {filename}.txt file!")
+                print(f"Successfully created {filename}.txt file!")
 
     def encrypt_then_sign(self):
         try:
             self.clear_screen()
             print("Encrypting and Signing the Message...\n")
-            file = open(input("Enter message's filename/path: "), 'r')
+            file = open(f"{input("Enter message's filename: ")}.txt", 'r')
             message = file.read().encode()
             encryption_key = input("Specify the encryption public key: ")
             signing_key = input("Specify the signing private key: ")
