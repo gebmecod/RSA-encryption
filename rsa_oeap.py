@@ -4,15 +4,6 @@ from Crypto.Hash import SHA256
 from Crypto.PublicKey import RSA
 from generate_key import Key
 
-# m = b'You can attack now'
-# encryption_key = Key()
-# encryption_public_key = encryption_key.public_key()
-# encryption_private_key = encryption_key.private_key()
-
-# signing_key = Key()
-# signing_public_key = signing_key.public_key()
-# signing_private_key = signing_key.private_key()
-
 def encrypt_message(m, k):
 
     key = RSA.importKey(open(k).read())
@@ -52,11 +43,3 @@ def verify_message(s, c, k, d):
         return decrypt_message(c, d)
     except(ValueError, TypeError):
         print("Message has been tampered")
-
-# signature = open('signature.pem', 'rb').read()
-# ciphertext = open('ciphertext', 'rb').read()
-# signing_public_key = 'signing.pub'
-
-# # ciphertext = encrypt_message(m, encryption_public_key)
-# # signature = sign_ciphertext(ciphertext, signing_private_key)
-# verify_message(signature, ciphertext, signing_public_key)
